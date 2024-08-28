@@ -498,6 +498,8 @@ function extractURL (req) {
     return `${headers[HTTP2_HEADER_SCHEME]}://${headers[HTTP2_HEADER_AUTHORITY]}${headers[HTTP2_HEADER_PATH]}`
   } else {
     const protocol = getProtocol(req)
+    log.debug("============================================================");
+    log.debug(`req.originalUrl : ${req.originalUrl} , req.url ${req.url}.`)
     return `${protocol}://${req.headers.host}${req.originalUrl || req.url}`
   }
 }
